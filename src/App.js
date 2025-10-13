@@ -8,9 +8,9 @@ function App() {
     .then(data => {
       ipAddr = data.ip;
     })
-    .catch(error => console.error('Error fetching IP:', error));
+    .catch(error => ipAddr = 'Error fetching IP: ' + error);
 
-  return <div>Your IP address is {ipAddr}</div>;
+  return <div>0148 Your IP address is {ipAddr}</div>;
 }
 
 export default App;
