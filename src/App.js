@@ -1,16 +1,16 @@
 import React from 'react';
 
-function App() {
+async function App() {
 
   var ipAddr = '';
-  fetch('https://api.ipify.org?format=json')
+  await fetch('https://api.ipify.org?format=json')
     .then(response => response.json())
     .then(data => {
       ipAddr = data.ip;
     })
     .catch(error => ipAddr = 'Error fetching IP: ' + error);
 
-  return <div>0148 Your IP address is {ipAddr}</div>;
+  return <div>0154 Your IP address is {ipAddr}</div>;
 }
 
 export default App;
