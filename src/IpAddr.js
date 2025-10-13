@@ -7,7 +7,8 @@ async function fetchIps(signal) {
 }
 
 function IpList() {
-  const [ips, setIps] = useState([]);
+  //const [ips, setIps] = useState([]);
+  const [ip, setIp] = useState("0.0.0.0");
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   useEffect(() => {
@@ -16,7 +17,8 @@ function IpList() {
       try {
         setIsLoading(true);
         const data = await fetchIps(controller.signal);
-        setIps(data);
+        //setIps(data);
+        setIp(data);
       } catch (err) {
         if (err.name !== "AbortError") {
           setError(err.message || "Unknown error");
@@ -32,6 +34,7 @@ function IpList() {
   }, []);
   if (isLoading) return <p>Loading IPs...</p>;
   if (error) return <p>Error: {error}</p>;
+  /*
   return (
     <ul>
       {ips.map(result => (
@@ -39,6 +42,8 @@ function IpList() {
       ))}
     </ul>
   );
+  */
+ return ( ip.ip );
 }
 
 export default IpList;

@@ -5,7 +5,7 @@ function App() {
 
   var result = IpList();
 
-  return <div>0309 Your IP address is {ipAddr}</div>;
+  return <div>0324 Your IP address is {result}</div>;
 }
 
 export default App;
