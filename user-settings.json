@@ -1,0 +1,19 @@
+{
+    "user1" : {
+        "status": "enabled",
+        "endpoints": 
+            [
+                {"endpoint": "https://azureendpoint1", "duration": 120, "action": "allow"},
+                {"endpoint": "https://azureendpoint2", "duration": 120, "action": "allow"}
+            ]
+    },
+    "user2" : {
+        "username": "user2",
+        "status": "enabled",
+        "endpoints": 
+            [
+                {"endpoint": "https://azureendpoint1", "duration": 120, "action": "allow"},
+                {"endpoint": "https://azureendpoint2", "duration": 120, "action": "allow"}
+            ]
+    }
+}

@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 
-async function fetchIps(signal) {
+async function fetchIp(signal) {
   const res = await fetch("https://api.ipify.org?format=json", { signal });
   if (!res.ok) throw new Error("Failed to fetch users");
   return res.json();
 }
 
 function IpList() {
-  //const [ips, setIps] = useState([]);
   const [ip, setIp] = useState("0.0.0.0");
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -16,8 +15,7 @@ function IpList() {
     async function loadIps() {
       try {
         setIsLoading(true);
-        const data = await fetchIps(controller.signal);
-        //setIps(data);
+        const data = await fetchIp(controller.signal);
         setIp(data);
       } catch (err) {
         if (err.name !== "AbortError") {
