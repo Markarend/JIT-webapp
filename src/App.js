@@ -1,11 +1,12 @@
 import React from 'react';
 import IpList from './IpAddr';
+import GetUser from './Users';
 
 function App() {
 
-  var result = IpList();
-
-  return <div>0324 Your IP address is {result}</div>;
+  var ip = IpList();
+  var user = GetUser();
+  return <div>1048 You are { user } at {ip}</div>;
 }
 
 export default App;
