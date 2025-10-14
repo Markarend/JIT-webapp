@@ -1,23 +1,23 @@
 import { useEffect, useState } from "react";
 
-async function getUserInfo(signal) {
-  const response = await fetch('/.auth/me', { signal });
+async function getBlob(blobName,signal) {
+  const response = await fetch("https://jitstaticwebappsa.blob.core.windows.net/blobs/"+blobName, { signal });
   const payload = await response.json();
-  const { clientPrincipal } = payload;
-  return clientPrincipal;
+  const { blob } = payload;
+  return blob;
 }
 
-function GetUser() {
-  const [user, setUser] = useState(null);
+function GetSettings() {
+  const [userSettings, setUserSettings] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   useEffect(() => {
     const controller = new AbortController();
-    async function loadUsers() {
+    async function loadUserSettings() {
       try {
         setIsLoading(true);
-        const data = await getUserInfo(controller.signal);
-        setUser(data);
+        const data = await getBlob("user-settings.json", controller.signal);
+        setUserSettings(data);
       } catch (err) {
         if (err.name !== "AbortError") {
           setError(err.message || "Unknown error");
@@ -26,15 +26,15 @@ function GetUser() {
         setIsLoading(false);
       }
     }
-    loadUsers();
+    loadUserSettings();
     return () => {
       controller.abort();
     };
   }, []);
-  if (isLoading) return <p>Loading Users...</p>;
+  if (isLoading) return <p>Loading Settings...</p>;
   if (error) return <p>Error: {error}</p>;
 
- return ( user );
+ return ( userSettings );
 }
 
 /* Sample return:
@@ -51,4 +51,4 @@ function GetUser() {
 }
 */
 
-export default GetUser;
+export default GetSettings;

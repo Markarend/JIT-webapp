@@ -1,19 +1,15 @@
 {
-    "user1" : {
+    "mark.arend@procasemanagement.com" : {
         "status": "enabled",
         "endpoints": 
             [
-                {"endpoint": "https://azureendpoint1", "duration": 120, "action": "allow"},
-                {"endpoint": "https://azureendpoint2", "duration": 120, "action": "allow"}
-            ]
-    },
-    "user2" : {
-        "username": "user2",
-        "status": "enabled",
-        "endpoints": 
-            [
-                {"endpoint": "https://azureendpoint1", "duration": 120, "action": "allow"},
-                {"endpoint": "https://azureendpoint2", "duration": 120, "action": "allow"}
+                {
+                    "endpoint": "/subscriptions/c25cc3c6-9f85-45b0-a191-8bab3cc4e43c/resourceGroups/WD_Utility_RG/providers/Microsoft.Compute/virtualMachines/VM-WD-SFTP", 
+                    "purpose": "Connect to the SFTP VM using SSH",
+                    "ports": [22],
+                    "duration": "PT2H", 
+                    "action": "allow"
+                }
             ]
     }
 }
