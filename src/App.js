@@ -1,16 +1,17 @@
 import React from 'react';
 import IpList from './IpAddr';
 import GetUser from './Users';
-import GetSettings from './settings';
+import GetSettings from './Settings';
 
 function App() {
 
   var ip = IpList();
   var user = GetUser();
-  var settings = GetSettings();
+  var userSettings = GetSettings();
+  var userSettingsString = JSON.stringify(userSettings);
 
-  msg = <div>1048 You are { user.userDetails } at {ip}</div>;
-  msg += <div>Settings: { JSON.stringify(settings) }</div>;
+  var msg = <div>1048 You are { user.userDetails } at {ip}</div>;
+  msg += <div>Settings: { userSettingsString }</div>;
 
   return ( msg );
 }
