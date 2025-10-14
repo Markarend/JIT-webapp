@@ -1,7 +1,7 @@
 import React from 'react';
 import IpList from './IpAddr';
 import GetUser from './Users';
-import GetSettings from './Settings';
+import GetSettings from './UserSettings';
 
 function App() {
 
