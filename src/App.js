@@ -11,7 +11,7 @@ function App() {
   //var userSettingsString = JSON.stringify(userSettings);
 
   var msg = <div>1048 You are { user.userDetails } at {ip}</div>;
-  //msg += <div>Settings: { userSettingsString }</div>;
+  msg += <div>Settings: { userSettings.length }</div>;
 
   return ( msg );
 }
